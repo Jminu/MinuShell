@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include "executor.h"
 
 void executor(char **args)
 {
