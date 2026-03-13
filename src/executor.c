@@ -3,11 +3,25 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <string.h>
 #include "executor.h"
+#include "builtin.h"
+
+#define MAX_PATH 1024
 
 void executor(char **args)
 {
 	pid_t pid;
+	int i;
+
+	for (i = 0; builtin_cmd[i].func_name != NULL; i++)
+	{
+		if (!strcmp(builtin_cmd[i].func_name, args[0]))
+		{
+			builtin_cmd[i].func(args);
+			return;
+		}
+	}
 
 	pid = fork();
 	if (pid == 0)

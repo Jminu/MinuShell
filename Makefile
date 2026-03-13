@@ -8,11 +8,13 @@ OBJ_DIR = obj
 
 SRCS = $(SRC_DIR)/main.c \
        $(SRC_DIR)/parser.c \
-       $(SRC_DIR)/executor.c
+       $(SRC_DIR)/executor.c \
+       $(SRC_DIR)/builtin.c
 
 OBJS = $(OBJ_DIR)/main.o \
        $(OBJ_DIR)/parser.o \
-       $(OBJ_DIR)/executor.o
+       $(OBJ_DIR)/executor.o \
+       $(OBJ_DIR)/builtin.o
 
 all: $(TARGET)
 
