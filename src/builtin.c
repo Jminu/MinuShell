@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 #include "builtin.h"
 
 #define MAX_PATH 1024
 
-void cd(char **args)
+void cd_cmd(char **args)
 {
 	char pwd[MAX_PATH];
 	getcwd(pwd, MAX_PATH);
@@ -20,7 +21,7 @@ void cd(char **args)
 	}
 }
 
-void pwd(char **args)
+void pwd_cmd(char **args)
 {
 	char pwd[MAX_PATH];
 
@@ -28,8 +29,14 @@ void pwd(char **args)
 		puts(pwd);
 }
 
+void exit_cmd(char **args)
+{
+	exit(0);
+}
+
 BUILTIN_CMD builtin_cmd[] = {
-	{"cd", cd},
-	{"pwd", pwd},
+	{"cd", cd_cmd},
+	{"pwd", pwd_cmd},
+	{"exit", exit_cmd},
 	{NULL, NULL}
 };
