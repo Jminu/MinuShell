@@ -26,7 +26,7 @@ void executor(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		printf("%s\n", args[0]);
+		redirect(args);
 		if (execvp(args[0], args) == -1)
 		{
 			perror("execvp error\n");
