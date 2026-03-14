@@ -3,13 +3,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define MAX_BUFF 1024
-
 void redirect(char **args)
 {
-	char buff[MAX_BUFF];
 	int fd;
-	int ret;
 	int i;
 
 	for (i = 0; args[i] != NULL; i++)

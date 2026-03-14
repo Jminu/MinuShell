@@ -16,6 +16,9 @@ int main()
 		printf("MinuShell> ");
 		fflush(stdout);
 		fgets(line, MAX_LINE, stdin);
+		if (!strcmp(line, "\n"))
+			continue;
+
 		line[strlen(line) - 1] = '\0';
 		parse_line(line, args);
 		executor(args);
