@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <signal.h>
 #include "parser.h"
 #include "executor.h"
 
@@ -10,6 +11,8 @@ int main()
 {
 	char line[MAX_LINE];
 	char *args[MAX_ARGS];
+
+	signal(SIGINT, SIG_IGN);
 
 	while (1)
 	{
